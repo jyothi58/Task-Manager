@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task Manager</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous"/>
+  </head>
+  <body>
+    <header>
+      <!-- Navbar -->
+      <nav class="navbar navbar-dark bg-dark navbar-expand-lg">
+        <div class="container">
+          <a class="navbar-brand" href="#">📝Task Manager</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+              <li class="nav-item"><a class="nav-link active" href="#"> Dashboard </a></li>
+              <li class="nav-item"><a class="nav-link" href="#"> Tasks </a></li>
+              <li class="nav-item"><a class="nav-link" href="#"> Reports </a></li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+      <!-- Breadcrumb -->
+      <nav class="m-3">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="#">Home</a></li>
+          <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
+          <li class="breadcrumb-item active">Tasks</li>
+        </ol>
+      </nav>
+    </header>
+    <main>
+      <div class="container">
+        <div class="d-flex justify-content-end mb-3">
+          <button class="btn btn-primary" type="button" data-bs-toggle="modal" data-bs-target="#addTaskModal">Add Task</button>
+        </div>
+        <div class="card mt-3">
+          <div class="card-header">📋 Task List</div>
+          <div class="card-body">
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item active d-flex justify-content-between align-items-center">✅ Prepare monthly performance report<span class="badge bg-success rounded-pill">New</span></li>
+              <li class="list-group-item d-flex justify-content-between align-items-center">⏳ Reply to client emails<span class="badge bg-warning rounded-pill">In progress</span></li>
+              <li class="list-group-item d-flex justify-content-between align-items-center">❌ Schedule team meeting<span class="badge bg-danger rounded-pill">Cancelled</span></li>
+            </ul>
+          </div>
+          <div class="modal fade" id="addTaskModal">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title">Add Task</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                  <form action="">
+                    <div class="mb-3">
+                      <label for="taskName" class="form-label">Task Name</label>
+                      <input class="form-control" name="taskName" type="text" placeholder="Enter Task Name"/>
+                    </div>
+                    <div class="mb-3">
+                      <label for="taskDescription" class="form-label">Task Description</label>
+                      <textarea id="taskDescription" class="form-control" type="text" placeholder="Enter Task Description"></textarea>
+                    </div>
+                    <div class="mb-3">
+                      <label for="taskStatus" class="form-label">Task Status</label>
+                      <select class="form-select" name="" id="taskStatus">
+                        <option selected>New</option>
+                        <option>In Progress</option>
+                        <option>Completed</option>
+                        <option>Cancelled</option>
+                      </select>
+                    </div>
+                  </form>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-primary">Save Task</button>
+                  <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="dropdown mt-3">
+          <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown">Actions</button>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#">Edit Task</a></li>
+            <li><a class="dropdown-item" href="#">Delete Task</a></li>
+            <li><hr class="dropdown-divider" /></li>
+            <li><a class="dropdown-item" href="#">Mark as Completed</a></li>
+          </ul>
+        </div>
+        <ul class="nav nav-tabs mt-3">
+          <li class="nav-item">
+            <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#allTasks" type="button">All Tasks</button>
+          </li>
+          <li class="nav-item">
+            <button class="nav-link" data-bs-toggle="tab" data-bs-target="#completedTasks" type="button">Completed Tasks</button>
+          </li>
+          <li class="nav-item">
+            <button class="nav-link" data-bs-toggle="tab" data-bs-target="#pendingTasks" type="button">Pending Tasks</button>
+          </li>
+        </ul>
+        <div class="tab-content">
+          <!-- All Tasks -->
+          <div class="tab-pane fade show active" id="allTasks">
+            <ul class="list-group">
+              <li class="list-group-item d-flex justify-content-between align-items-center">✅ Submit project report<span class="badge bg-success">Completed</span></li>
+              <li class="list-group-item d-flex justify-content-between align-items-center">⏳ Fix login bug<span class="badge bg-warning text-dark">In Progress</span></li>
+              <li class="list-group-item d-flex justify-content-between align-items-center">📊 Prepare presentation slides<span class="badge bg-secondary">Pending</span></li>
+              <li class="list-group-item d-flex justify-content-between align-items-center">📝 Take notes on new cloud concepts<span class="badge bg-secondary">Pending</span></li>
+              <li class="list-group-item d-flex justify-content-between align-items-center">✅ Backup system files<span class="badge bg-success">Completed</span></li>
+            </ul>
+          </div>
+
+          <!-- Completed Tasks -->
+          <div class="tab-pane fade" id="completedTasks">
+            <ul class="list-group">
+              <li class="list-group-item d-flex justify-content-between align-items-center">✅ Submit project report<span class="badge bg-success">Completed</span></li>
+              <li class="list-group-item d-flex justify-content-between align-items-center">✅ Backup system files<span class="badge bg-success">Completed</span></li>
+            </ul>
+          </div>
+
+          <!-- Pending Tasks -->
+          <div class="tab-pane fade" id="pendingTasks">
+            <ul class="list-group">
+              <li class="list-group-item d-flex justify-content-between align-items-center">📊 Prepare presentation slides<span class="badge bg-secondary">Pending</span></li>
+              <li class="list-group-item d-flex justify-content-between align-items-center">📝 Take notes on new cloud concepts<span class="badge bg-secondary">Pending</span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous"></script>
+  </body>
+</html>
